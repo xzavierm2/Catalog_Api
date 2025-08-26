@@ -1,0 +1,17 @@
+# Docker Compose file for the Catalog API service
+
+version: "3.9"
+
+services:
+  catalog-api:
+    build: .
+    container_name: catalog-api-container
+    ports:
+      - "5050:5050"
+    volumes:
+      - .:/app
+    environment:
+      FLASK_APP: app.py
+      FLASK_DEBUG: 1
+      FLASK_ENV: development
+      FLASK_RUN_HOST: 0.0.0.0

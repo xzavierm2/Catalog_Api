@@ -1,0 +1,207 @@
+[
+  {
+    "id": 3498,
+    "name": "Grand Theft Auto V",
+    "description": "",
+    "rating": 4.47,
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox Series S/X",
+      "PlayStation 4",
+      "PlayStation 3",
+      "Xbox 360",
+      "Xbox One"
+    ],
+    "release_date": "2013-09-17",
+    "genre": [
+      "Action"
+    ],
+    "price": null,
+    "steam_app_id": null
+  },
+  {
+    "id": 3328,
+    "name": "The Witcher 3: Wild Hunt",
+    "description": "",
+    "rating": 4.64,
+    "platforms": [
+      "Xbox Series S/X",
+      "PlayStation 5",
+      "macOS",
+      "PlayStation 4",
+      "Nintendo Switch",
+      "PC",
+      "Xbox One"
+    ],
+    "release_date": "2015-05-18",
+    "genre": [
+      "Action",
+      "RPG"
+    ],
+    "price": null,
+    "steam_app_id": null
+  },
+  {
+    "id": 4200,
+    "name": "Portal 2",
+    "description": "",
+    "rating": 4.59,
+    "platforms": [
+      "PlayStation 3",
+      "PC",
+      "Xbox 360",
+      "Linux",
+      "macOS",
+      "Xbox One"
+    ],
+    "release_date": "2011-04-18",
+    "genre": [
+      "Shooter",
+      "Puzzle"
+    ],
+    "price": null,
+    "steam_app_id": null
+  },
+  {
+    "id": 4291,
+    "name": "Counter-Strike: Global Offensive",
+    "description": "",
+    "rating": 3.57,
+    "platforms": [
+      "PC",
+      "Linux",
+      "Xbox 360",
+      "PlayStation 3"
+    ],
+    "release_date": "2012-08-21",
+    "genre": [
+      "Shooter"
+    ],
+    "price": null,
+    "steam_app_id": null
+  },
+  {
+    "id": 5286,
+    "name": "Tomb Raider (2013)",
+    "description": "",
+    "rating": 4.06,
+    "platforms": [
+      "PlayStation 3",
+      "Xbox 360",
+      "macOS",
+      "PC",
+      "Xbox One",
+      "PlayStation 4"
+    ],
+    "release_date": "2013-03-05",
+    "genre": [
+      "Action"
+    ],
+    "price": null,
+    "steam_app_id": null
+  },
+  {
+    "id": 13536,
+    "name": "Portal",
+    "description": "",
+    "rating": 4.49,
+    "platforms": [
+      "macOS",
+      "PC",
+      "Android",
+      "PlayStation 3",
+      "Xbox 360",
+      "Linux",
+      "Nintendo Switch"
+    ],
+    "release_date": "2007-10-09",
+    "genre": [
+      "Action",
+      "Puzzle"
+    ],
+    "price": null,
+    "steam_app_id": null
+  },
+  {
+    "id": 12020,
+    "name": "Left 4 Dead 2",
+    "description": "",
+    "rating": 4.09,
+    "platforms": [
+      "Xbox 360",
+      "Linux",
+      "PC",
+      "macOS"
+    ],
+    "release_date": "2009-11-17",
+    "genre": [
+      "Action",
+      "Shooter"
+    ],
+    "price": null,
+    "steam_app_id": null
+  },
+  {
+    "id": 5679,
+    "name": "The Elder Scrolls V: Skyrim",
+    "description": "",
+    "rating": 4.42,
+    "platforms": [
+      "PC",
+      "Xbox Series S/X",
+      "PlayStation 5",
+      "Xbox One",
+      "PlayStation 4",
+      "Nintendo Switch",
+      "Xbox 360",
+      "PlayStation 3"
+    ],
+    "release_date": "2011-11-11",
+    "genre": [
+      "Action",
+      "RPG"
+    ],
+    "price": null,
+    "steam_app_id": null
+  },
+  {
+    "id": 28,
+    "name": "Red Dead Redemption 2",
+    "description": "",
+    "rating": 4.59,
+    "platforms": [
+      "PC",
+      "PlayStation 4",
+      "Xbox One"
+    ],
+    "release_date": "2018-10-26",
+    "genre": [
+      "Action"
+    ],
+    "price": null,
+    "steam_app_id": null
+  },
+  {
+    "id": 4062,
+    "name": "BioShock Infinite",
+    "description": "",
+    "rating": 4.38,
+    "platforms": [
+      "PlayStation 4",
+      "Xbox 360",
+      "Nintendo Switch",
+      "Linux",
+      "PC",
+      "PlayStation 3",
+      "Xbox One"
+    ],
+    "release_date": "2013-03-26",
+    "genre": [
+      "Action",
+      "Shooter"
+    ],
+    "price": null,
+    "steam_app_id": null
+  }
+]

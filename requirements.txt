@@ -1,0 +1,10 @@
+# Dependencies Flask
+
+Flask==2.2.5
+
+# Flask-SQLAlchemy is used for ORM
+Flask
+
+# flasgger is used for API documentation
+flasgger
+requests
