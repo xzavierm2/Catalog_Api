@@ -4,6 +4,8 @@ stages:
 
 variables:
   DOCKER_IMAGE: "$CI_REGISTRY_IMAGE/catalog-api:latest"
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ""
 
 build:
   stage: build
@@ -11,16 +13,19 @@ build:
   services:
     - docker:20.10.16-dind
   script:
+    - echo "Logging into GitLab Container Registry..."
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - echo "Building Docker image..."
     - docker build -t $DOCKER_IMAGE .
+    - echo "Pushing Docker image..."
     - docker push $DOCKER_IMAGE
   only:
     - main
 
 deploy:
   stage: deploy
-  image: alpine:latest
   script:
-    - echo "Deployment step placeholder"
+    - echo "Deployment stage placeholder"
   only:
     - main
+
