@@ -18,6 +18,8 @@ COPY . /app
 # Install system dependencies
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir flask requests
+RUN pip install --no-cache-dir pytest
 
 # Copy the rest of the application code
 COPY app.py /app/app.py
@@ -25,8 +27,6 @@ COPY app.py /app/app.py
 # Copy requirements file if it exists
 COPY requirements.txt /app/requirements.txt
 
-# Install dependencies
-RUN pip install --no-cache-dir flask requests
 
 # Expose the port the app runs on
 EXPOSE 5050
