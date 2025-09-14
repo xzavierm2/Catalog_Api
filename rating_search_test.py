@@ -1,3 +1,5 @@
+# Rating_search_test.py
+
 catalog = [
     {"id": 1, "name": "Game A", "rating": 4.49},
     {"id": 2, "name": "Game B", "rating": 3.2},
