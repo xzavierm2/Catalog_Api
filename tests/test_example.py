@@ -1,4 +1,4 @@
-from rating_search_test import search_by_rating_range  # Update import as needed
+from tests.rating_search_test import search_by_rating_range  # Update import as needed
 
 def test_search_by_rating_range_exact():
     result = search_by_rating_range("4")
