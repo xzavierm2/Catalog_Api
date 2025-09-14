@@ -15,6 +15,9 @@ WORKDIR /app
 # Copy project files into the container
 COPY . /app
 
+# Copy tests directory
+COPY tests/ /app/tests/
+
 # Install system dependencies
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
