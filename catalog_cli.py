@@ -116,6 +116,7 @@ def delete_item():
 # Search items by various fields
 def search_items():
     print("\nSearch Options")
+    print("Enter the number corresponding to your search choice:")
     print("1. Search by name")
     print("2. Search by description")
     print("3. Search by category")
@@ -123,7 +124,9 @@ def search_items():
     print("5. Search by platform")
     print("6. Search by release date")
     print("7. Search by rating")
-    print("8. Back to main menu")
+    print("8. Search by price range")
+    print("9.Search by multiple fields")
+    print("10. Back to main menu")
     choice = input("Choose an option: ").strip()
 
     results = []
@@ -150,9 +153,29 @@ def search_items():
         rating_input = input("Enter minimum rating to search: ").strip()
         results = catalog.search_by_rating_range(rating_input)
     elif choice == "8":
-        query = input("Enter price range (min-max) to search: ").strip()
-        results = catalog.search_by_price_range(query, field="price")
+        price_input = input("Enter price range (min-max) to search: ").strip()
+        results = catalog.search_by_price_range(price_input)
     elif choice == "9":
+        name = input("Name (leave blank to skip): ").strip() or None
+        category = input("Category (leave blank to skip): ").strip() or None
+        min_price_input = input("Minimum Price (leave blank to skip): ").strip()
+        min_price = float(min_price_input) if min_price_input else None
+        max_price_input = input("Maximum Price (leave blank to skip): ").strip()
+        max_price = float(max_price_input) if max_price_input else None
+        min_rating_input = input("Minimum Rating (leave blank to skip): ").strip()
+        min_rating = float(min_rating_input) if min_rating_input else None
+        max_rating_input = input("Maximum Rating (leave blank to skip): ").strip()
+        max_rating = float(max_rating_input) if max_rating_input else None
+
+        results = catalog.search_by_multiple_fields(
+            name=name,
+            category=category,
+            min_price=min_price,
+            max_price=max_price,
+            min_rating=min_rating,
+            max_rating=max_rating
+        )
+    elif choice == "10":
         return
     else:
         print("Invalid choice. Please try again.")
