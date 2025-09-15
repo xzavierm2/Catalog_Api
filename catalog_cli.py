@@ -3,6 +3,8 @@
 
 import catalog
 
+
+# Simple CLI for interacting with the catalog module
 def print_item(item):
     print(f"ID: {item['id']}")
     print(f"Name: {item['name']}")
@@ -16,6 +18,7 @@ def print_item(item):
     print(f"Genre: {item.get('genre', '')}")
     print("-" * 30)
 
+# List all items
 def list_items():
     items = catalog.get_all_items()
     if not items:
@@ -23,7 +26,7 @@ def list_items():
     else:
         for item in items:
             print_item(item)
-
+# Add a new item
 def add_item():
     try:
         name = input("Name: ").strip()
@@ -54,6 +57,7 @@ def add_item():
     print("Added new item:")
     print_item(new_item)
 
+# Update an existing item
 def update_item():
     try:
         item_id = int(input("Enter the ID of the item to update: "))
@@ -93,6 +97,8 @@ def update_item():
     else:
         print("Failed to update item.")
 
+
+# Delete an item
 def delete_item():
     try:
         item_id = int(input("Enter the ID of the item to delete: "))
@@ -107,6 +113,7 @@ def delete_item():
     catalog.delete_item(item_id)
     print(f"Item with ID {item_id} deleted.")
 
+# Search items by various fields
 def search_items():
     print("\nSearch Options")
     print("1. Search by name")
@@ -143,6 +150,9 @@ def search_items():
         rating_input = input("Enter minimum rating to search: ").strip()
         results = catalog.search_by_rating_range(rating_input)
     elif choice == "8":
+        query = input("Enter price range (min-max) to search: ").strip()
+        results = catalog.search_by_price_range(query, field="price")
+    elif choice == "9":
         return
     else:
         print("Invalid choice. Please try again.")
@@ -155,6 +165,9 @@ def search_items():
         for item in results:
             print_item(item)
 
+# 
+
+# Main CLI loop
 def main():
     while True:
         print("\nCatalog CLI")

@@ -17,6 +17,44 @@ def add_item(item_data):
     save_items_to_file()  # Save the updated catalog to file
     return item_data
 
+# Function searxch items by price range
+def search_by_price_range(price_input):
+    global catalog
+    print(f"[DEBUG] Items loaded: {len(catalog)}")
+
+    try:
+        if "-" in price_input:
+            min_price, max_price = map(float, price_input.split("-"))
+            if min_price > max_price:  # Swap if reversed
+                min_price, max_price = max_price, min_price
+            min_price = max(0, min_price)
+        else:
+            center = float(price_input)
+            if center < 0:
+                print(f"[DEBUG] Price {center} cannot be negative")
+                return []
+            min_price = max(center - 0.5, 0)
+            max_price = center + 0.49
+    except ValueError:
+        print("Invalid price input. Please enter a valid float or range (e.g. 2.25 or 1-3).")
+        return []
+
+    results = []
+    for item in catalog:
+        try:
+            price = float(item.get("price", 0))
+            print(f"[DEBUG] Checking item {item['name']} with price {price}")
+        except (ValueError, TypeError):
+            continue
+
+        if min_price <= price <= max_price:
+            results.append(item)
+
+    print(f"[DEBUG] Found {len(results)} items with price between {min_price} and {max_price}.")
+    return results
+
+
+# Function to search items by rating range
 def search_by_rating_range(rating_input):
     global catalog
     print(f"[DEBUG] Items loaded: {len(catalog)}")
@@ -57,13 +95,33 @@ def search_by_rating_range(rating_input):
     return results
 
 
+# Function search items multiple fields at once
+def search_by_multiple_fields(name=None, category=None, min_price=None, max_price=None, min_rating=None, max_rating=None):
+    results = []
+    for item in catalog:
+        try:
+            price = float(item.get("price", 0))
+            rating = float(item.get("rating", 0))
+        except (ValueError, TypeError):
+            continue
 
+        if (name is None or name.lower() in item["name"].lower()) and \
+           (category is None or item.get("category") == category) and \
+           (min_price is None or price >= min_price) and \
+           (max_price is None or price <= max_price) and \
+           (min_rating is None or rating >= min_rating) and \
+           (max_rating is None or rating <= max_rating):
+            results.append(item)
+    return results
+
+# Retrieve an item by ID
 def get_item(item_id):
     for item in catalog:
         if item["id"] == item_id:
             return item
     return None
 
+# Retrieve all items, sorted by name
 def get_all_items():
     return sorted(catalog, key=lambda x: x["name"].lower())
 
@@ -82,6 +140,8 @@ def search_items(query, field="name"):
                 results.append(item)
     return results
 
+
+# Update an existing items.
 def update_item(item_id, name=None, description=None, price=None, quantity=None, rating=None, platform="Multi", category=None, genre=None, release_date=None):
     item = get_item(item_id)
     if item:
@@ -107,28 +167,32 @@ def update_item(item_id, name=None, description=None, price=None, quantity=None,
         return item
     return None
 
+# Delete an item by ID
 def delete_item(item_id):
     global catalog
     catalog = [item for item in catalog if item["id"] != item_id]
     save_items_to_file()  # Save the updated catalog to file
     return catalog
 
+# Update item quantity
 def update_item_quantity(item_id, quantity):
     item = get_item(item_id)
     if item:
         item["quantity"] = quantity
         return item
     return None
-
+# Get item by name (case-insensitive)
 def get_item_by_name(name):
     for item in catalog:
         if item["name"].lower() == name.lower():
             return item
     return None
 
+# Get items sorted by rating
 def get_items_by_rating(ascending=False):
     return sorted(catalog, key=lambda x: x.get("rating", 0), reverse=not ascending)
 
+# Get items by platform
 def get_items_by_platform(platform):
     results = []
     for item in catalog:
@@ -136,6 +200,7 @@ def get_items_by_platform(platform):
             results.append(item)
     return results
 
+# Get items by genre
 def get_items_by_genre(genre):
     results = []
     for item in catalog:
@@ -143,6 +208,7 @@ def get_items_by_genre(genre):
             results.append(item)
     return results
 
+# Get items by category
 def get_items_by_category(category):
     results = []
     for item in catalog:
@@ -150,6 +216,8 @@ def get_items_by_category(category):
             results.append(item)
     return results
 
+
+# Get items within a price range
 def get_items_by_price_range(min_price, max_price):
     results = []
     for item in catalog:
@@ -157,6 +225,7 @@ def get_items_by_price_range(min_price, max_price):
             results.append(item)
     return results
 
+# Get items by multiple criteria
 def get_items_by_criteria(name=None, category=None, min_price=None, max_price=None):
     results = []
     for item in catalog:
@@ -167,6 +236,7 @@ def get_items_by_criteria(name=None, category=None, min_price=None, max_price=No
             results.append(item)
     return results
 
+# Get items sorted by price
 def get_items_sorted_by_price(ascending=True):
     return sorted(catalog, key=lambda x: x["price"], reverse=not ascending)
 
